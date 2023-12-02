@@ -78,12 +78,18 @@ body {
 }
 
 #page {
+  background-color: #03111C;
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(8, 1fr);
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  &:focus-within #mandala-core {
+    animation: mandala-core 25s infinite;
+  }
 }
 
 #flexy {
@@ -96,26 +102,18 @@ body {
   width: 100vw;
 }
 
-.frame-size {
+#mandala-frame {
   grid-column-start: 2;
   grid-column-end: 12;
   grid-row-start: 2;
   grid-row-end: 8;
-}
-
-#solid-frame {
-  border: solid #3A2421 1rem;
-  z-index: 20;
-}
-
-#mandala-frame {
   background-image: url("/Earth&Sky.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: solid #3A2421 1rem;
   z-index: 0;
 }
-  /* border: solid #3A2421 1rem; */
 
 #mandala-core {
   /* background-image: url("/Earth&Sky.png"); */
@@ -128,14 +126,14 @@ body {
   width: 60vh;
   z-index: 10;
   border-radius: 50%;
-  animation: mandala-core 25s infinite;
+    &:hover {
+      transition: ease-in-out 2s;
+      transform: scale(1.1);
+    }
 }
 
 @keyframes mandala-core {
   0% {transform: scale(0);}
   50% {transform: scale(1);}
   100% {transform: scale(0);}
-}
-
-button {
 }
